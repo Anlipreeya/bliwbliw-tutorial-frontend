@@ -1,4 +1,4 @@
-name: DEV - Build
+namname: DEV - Build
 
 on:
   workflow_dispatch:
@@ -10,10 +10,10 @@ on:
     branches:
       - develop 
 
-      env:
-  APP_NAME: bliwbliw-tutorial-frontend
-  CONTAINER_REPOSITORY: "acrbliwbliwtutorial001.azurecr.io"
-  IMAGE_TAG: "0.0.1-SNAPSHOT"
+  env:
+    APP_NAME: bliwbliw-tutorial-frontend
+    CONTAINER_REPOSITORY: "acrbliwbliwtutorial001.azurecr.io"
+    IMAGE_TAG: "0.0.1-SNAPSHOT"
 
   jobs: 
   unitest:
@@ -23,4 +23,5 @@ on:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+  
   
