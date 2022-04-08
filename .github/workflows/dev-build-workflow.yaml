@@ -1,4 +1,4 @@
-namname: DEV - Build
+name: DEV - Build
 
 on:
   workflow_dispatch:
@@ -10,12 +10,12 @@ on:
     branches:
       - develop 
 
-  env:
+env:
     APP_NAME: bliwbliw-tutorial-frontend
     CONTAINER_REPOSITORY: "acrbliwbliwtutorial001.azurecr.io"
     IMAGE_TAG: "0.0.1-SNAPSHOT"
 
-  jobs: 
+jobs: 
   unitest:
     name: UnitTest
     runs-on: ubuntu-latest
