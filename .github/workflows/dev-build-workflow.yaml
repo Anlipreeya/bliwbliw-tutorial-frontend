@@ -23,9 +23,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
+  
     - name: Setup node
       uses: actions/setup-node@v2
+      with:      
+        node-version: '14'
 
     - name: Install dependencies
       run: npm install
@@ -38,6 +40,7 @@ jobs:
       with:
         name: Unit Test Results
         path: '${{ github.workspace }}/coverage/lcov-report/*'
+
 
   analyze:
     name: SAST CodeQL
@@ -87,14 +90,14 @@ jobs:
     #   make release
     
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1   
+      uses: github/codeql-action/analyze@v1
 
     build:
     name: Build
     runs-on: ubuntu-latest
     environment: 
       name: dev
-      url: https://github.com/Anlipreeya/bliw-tutorial-pipeline/actions/workflows/dev-tutorial-backend-deploy.yaml
+      url: https://github.com/bliw/bliw-tutorial-pipeline/actions/workflows/dev-tutorial-backend-deploy.yml
     needs: [unitest,analyze] # if on env sit don't use
     
     steps:
