@@ -126,8 +126,8 @@ jobs:
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        repository: username/[name]-tutorial-pipeline
-        event-type: name-tutorial-backend-cd-dev
+        repository: username/bliw-tutorial-pipeline
+        event-type: bliw-tutorial-backend-cd-dev
         client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
 
 
