@@ -97,6 +97,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: dev
+      url: https://github.com/bliw/bliw-tutorial-pipeline/actions/workflows/dev-tutorial-backend-deploy.yml
+      needs: [unitest,analyze] # if on env sit don't use
       url: https://github.Anlipreeya/bliw-tutorial-pipeline/actions/workflows/dev-tutorial-backend-deploy.yml
       needs: [unitest,analyze] # if on env sit don't use
     
