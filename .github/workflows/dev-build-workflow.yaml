@@ -17,9 +17,10 @@ env:
 
 jobs: 
   unitest:
-    name: UnitTest
+  - name: UnitTest
     runs-on: ubuntu-latest
     environment: dev
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -43,9 +44,9 @@ jobs:
 
 
   analyze:
-    name: SAST CodeQL
-    runs-on: ubuntu-latest
-    permissions:
+    - name: SAST CodeQL
+      runs-on: ubuntu-latest
+      permissions:
       actions: read
       contents: read
       security-events: write
@@ -93,14 +94,13 @@ jobs:
       uses: github/codeql-action/analyze@v1
 
     build:
-    name: Build
-    runs-on: ubuntu-latest
-    environment: 
+    - name: Build
+      runs-on: ubuntu-latest
+      environment: 
       name: dev
       url: https://github.com/bliw/bliw-tutorial-pipeline/actions/workflows/dev-tutorial-backend-deploy.yml
       needs: [unitest,analyze] # if on env sit don't use
-      url: https://github.Anlipreeya/bliw-tutorial-pipeline/actions/workflows/dev-tutorial-backend-deploy.yml
-      needs: [unitest,analyze] # if on env sit don't use
+     
     
     steps:
     - name: Checkout code
